@@ -1,0 +1,24 @@
+{
+  "name": "class-api",
+  "version": "1.0.0",
+  "description": "project utilizing typescript",
+  "main": "app.ts",
+  "scripts": {
+    "dev": "ts-node-dev --rs --cls --ignore-watch node_modules src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typeorm": "typeorm-ts-node-commonjs"
+  },
+  "author": "karolrezende",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.17",
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.4"
+  }
+}
