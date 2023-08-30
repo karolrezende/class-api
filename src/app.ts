@@ -6,7 +6,7 @@ const app = express()
 
 app.use(express.json())
 
-app.use('/curso', courseRoute)
+app.use('/cursos', courseRoute)
 
 app.use(handleError)
 export default app
