@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Classy } from "./classy.entities";
+import { Ativities } from "./ativities.entities";
 
 
 @Entity('supplies')
@@ -24,4 +25,8 @@ export class Supplies {
 
     @OneToMany(()=> Classy, (Classy)=> Classy.supplies)
     classy: Classy
+
+    @OneToMany(()=> Ativities, (Ativities)=> Ativities.supplies)
+    @JoinColumn()
+    ativities: Ativities
 }

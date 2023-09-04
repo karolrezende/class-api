@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Supplies } from "./supplies.entities";
 
 
 @Entity('ativities')
@@ -11,4 +12,7 @@ export class Ativities {
     
     @Column({type:'varchar', length:250})
     objetive: string
+
+    @ManyToOne(()=> Supplies)
+    supplies: Supplies
 }

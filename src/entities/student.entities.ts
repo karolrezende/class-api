@@ -1,5 +1,7 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Coments } from "./coments.entities";
+import { Person } from "./person.entities";
+import { StudentClass } from "./studentClass.entities";
 
 
 @Entity('student')
@@ -12,4 +14,11 @@ export class Student {
 
     @OneToMany(()=> Coments, (Coments)=> Coments.student)
     coments: Coments[]
+
+    @OneToOne(()=> Person)
+    @JoinColumn()
+    person: Person
+
+    @OneToOne(()=> StudentClass, (StudentClass)=> StudentClass.student)
+    studentClass: StudentClass
 }

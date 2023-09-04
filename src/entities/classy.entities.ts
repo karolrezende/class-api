@@ -2,6 +2,7 @@ import { Column, CreateDateColumn, DeleteDateColumn, Entity, ManyToOne, OneToMan
 import { Courses } from "./courses.entities";
 import { Supplies } from "./supplies.entities";
 import { Professor } from "./professor.entities";
+import { StudentClass } from "./studentClass.entities";
 
 
 @Entity('classy')
@@ -18,5 +19,9 @@ export class Classy {
     @ManyToOne(()=> Supplies, (Supplies)=> Supplies.classy)
     supplies: Supplies
 
-    @OneToOne(()=> Professor, (Professor)=> Professor.classy)
+    @ManyToOne(()=> Professor, (Professor)=> Professor.classy)
+    professor: Professor
+
+    @ManyToOne(()=> StudentClass, (StudentClass)=> StudentClass.classy)
+    studentClass: StudentClass
 }
