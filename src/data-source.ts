@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import path from 'path';
 import 'reflect-metadata';
-import { DataSource, DataSourceOptions } from 'typeorm';
+import { DataSource, DataSourceOptions, Repository, getRepository } from 'typeorm';
+import { Courses } from './entities/courses.entities';
 
 const dataSourceConfig = (): DataSourceOptions => {
   const entitiesPath: string = path.join(__dirname, './entities/**.{ts,js}');
@@ -34,3 +35,6 @@ const dataSourceConfig = (): DataSourceOptions => {
 };
 
 export const AppDataSource = new DataSource(dataSourceConfig());
+
+
+export const courseRepository : Repository<Courses> = AppDataSource.getRepository(Courses)

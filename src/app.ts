@@ -1,4 +1,5 @@
 import  express from "express"
+import "express-async-errors"
 import { handleError } from "./error"
 import 'reflect-metadata'
 import { courseRoute } from "./routes/courses.routes"
