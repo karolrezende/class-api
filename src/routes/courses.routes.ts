@@ -9,3 +9,4 @@ export const courseRoute: Router = Router()
 
 courseRoute.get('', getCoursesController)
 courseRoute.post('', ensureSchema(courseSchemaRequest), ensureCourseDoesntExist,postCoursesController)
+courseRoute.get('/:id', )
