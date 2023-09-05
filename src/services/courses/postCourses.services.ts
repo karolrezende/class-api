@@ -3,7 +3,7 @@ import { Courses } from "../../entities/courses.entities";
 import { TcourseSchema, TcourseSchemaArr, TcourseSchemaRequest, TcourseSchemaRequestArr } from "../../interfaces/courses.interfaces";
 import { courseSchema } from "../../schemas/courses.schema";
 
-export const postCoursesServices = async (reqbody: TcourseSchemaRequest | TcourseSchemaRequestArr): Promise<TcourseSchema|TcourseSchemaArr> => {
+export const postCoursesServices = async (reqbody: TcourseSchemaRequest): Promise<TcourseSchema> => {
 
     const createdRequest: Courses = courseRepository.create(reqbody)
     await courseRepository.save(createdRequest)
