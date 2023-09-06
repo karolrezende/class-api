@@ -15,6 +15,8 @@ export const courseSchemaRequest = courseSchema.omit({
     updatedAt: true, 
     deletedAt: true
 })
+export const courseSchemaNameRequest = courseSchemaRequest.omit({
+    desc: true
+})
 
-export const courseSchemaArr = z.array(courseSchema)
-export const courseSchemaRequestArr = z.array(courseSchemaRequest)
+export const courseSchemaArr = z.array(courseSchema) 

@@ -3,7 +3,7 @@ import { courseRepository } from "../data-source"
 import { Courses } from "../entities/courses.entities"
 import { AppError } from "../error"
 
-export const ensureCourseDoesntExist = async( req: Request,res:Response, next:NextFunction) => {
+export const ensureCourseExists = async( req: Request,res:Response, next:NextFunction) => {
 
     const nameFinded: Courses | null = await courseRepository.findOneBy({
         name: req.body.name
