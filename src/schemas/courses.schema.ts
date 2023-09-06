@@ -19,4 +19,4 @@ export const courseSchemaNameRequest = courseSchemaRequest.omit({
     desc: true
 })
 
-export const courseSchemaArr = z.array(courseSchema) 
+export const courseSchemaPatchRequest = courseSchemaRequest.partial()

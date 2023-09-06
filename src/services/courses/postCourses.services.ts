@@ -1,6 +1,6 @@
 import { courseRepository } from "../../data-source";
 import { Courses } from "../../entities/courses.entities";
-import { TcourseSchema, TcourseSchemaArr, TcourseSchemaRequest, TcourseSchemaRequestArr } from "../../interfaces/courses.interfaces";
+import { TcourseSchema, TcourseSchemaRequest} from "../../interfaces/courses.interfaces";
 import { courseSchema } from "../../schemas/courses.schema";
 
 export const postCoursesServices = async (reqbody: TcourseSchemaRequest): Promise<TcourseSchema> => {

@@ -1,11 +1,11 @@
 import { courseRepository } from "../../data-source"
 import { Courses } from "../../entities/courses.entities"
-import { TcourseSchema, TcourseSchemaNameRequest } from "../../interfaces/courses.interfaces"
+import { TcourseSchema } from "../../interfaces/courses.interfaces"
 import { courseSchema } from "../../schemas/courses.schema"
 
-export const getCourseByNameService = async (name: string): Promise<Courses>=>{
+export const getCourseByNameService = async (name: string): Promise<TcourseSchema>=>{
 
-    const findedName!: Courses = await courseRepository.findOneBy({
+    const findedName: Courses |null= await courseRepository.findOneBy({
         name: name
     })
 

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { TcourseSchema, TcourseSchemaArr, TcourseSchemaNameRequest, TcourseSchemaRequest, TcourseSchemaRequestArr } from "../interfaces/courses.interfaces";
+import { TcourseSchema, TcourseSchemaNameRequest, TcourseSchemaRequest } from "../interfaces/courses.interfaces";
 import { getCoursesServices } from "../services/courses/getCourses.services";
 import { Courses } from "../entities/courses.entities";
 import { postCoursesServices } from "../services/courses/postCourses.services";
@@ -18,5 +18,7 @@ export const postCoursesController = async(req: Request, res: Response): Promise
 
 export const getCourseByNameController = async(req: Request, res:Response): Promise<Response<Courses>> =>{
     const name: string = req.body.name
-    const gettedCourse: Courses = await getCourseByNameService(name)
+    const gettedCourse: TcourseSchema = await getCourseByNameService(name)
+
+    return res.status(200).json(gettedCourse)
 }
