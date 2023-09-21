@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Student } from "./student.entities";
 import { Classy } from "./classy.entities";
 
@@ -18,6 +18,7 @@ export class StudentClass {
     grade: number
 
     @OneToOne(()=> Student, (Student)=>Student.studentClass)
+    @JoinColumn()
     student: Student
 
     @OneToMany(()=> Classy, (Classy)=> Classy.studentClass)

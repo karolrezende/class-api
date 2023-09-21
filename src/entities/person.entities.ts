@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Admin } from "./admin.entities";
 
 
 @Entity('person')
@@ -9,9 +10,15 @@ export class Person {
     @Column({type: 'varchar', length: 50})
     name: string
 
+    @Column({type:'varchar', length: 100})
+    email: string
+    
     @Column({type: 'varchar', length:250})
     desc: string
 
+    @Column({type: "varchar", length: 120})
+    password: string
+    
     @CreateDateColumn()
     createdAt: string|Date
     
@@ -20,4 +27,8 @@ export class Person {
 
     @DeleteDateColumn({nullable: true})
     deletedAt: string | Date | undefined| null
+
+    @OneToOne(()=> Admin, (Admin)=> Admin.person)
+    @JoinColumn()
+    admin: Admin
 }

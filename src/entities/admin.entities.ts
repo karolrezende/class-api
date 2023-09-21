@@ -1,4 +1,4 @@
-import { Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn} from "typeorm";
 import { Person } from "./person.entities";
 
 
@@ -7,7 +7,9 @@ export class Admin {
     @PrimaryGeneratedColumn('increment')
     id: number
 
-    @OneToOne(()=> Person)
-    @JoinColumn()
+    @Column({type: "boolean"})
+    isAdm: boolean
+
+    @OneToOne(()=> Person, (Person) => Person.admin )
     person: Person
 }
